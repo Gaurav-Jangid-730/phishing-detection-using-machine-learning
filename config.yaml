@@ -1,0 +1,38 @@
+# config.yaml - Configuration file for the phishing detection model
+
+# File paths
+data:
+  train_data: "data/phishing_data.csv"
+  test_data: "data/test_data.csv"  # If separate test data is used
+
+model:
+  # Model settings
+  model_file: "best_model.pkl"
+  scaler_file: "scaler.pkl"
+
+logging:
+  # Logging settings
+  log_file: "logs/project.log"
+  log_level: "DEBUG"
+
+flask:
+  # Flask app settings
+  host: "127.0.0.1"
+  port: 5000
+
+features:
+  # List of features to extract from URLs
+  url_features:
+    - "url_length"
+    - "special_chars_count"
+    - "has_at_symbol"
+    - "has_hyphen"
+    - "num_subdomains"
+  domain_features:
+    - "domain_age"
+  page_features:
+    - "http_status_code"
+    - "page_load_time"
+  content_features:
+    - "num_external_links"
+    - "contains_phishing_keywords"
